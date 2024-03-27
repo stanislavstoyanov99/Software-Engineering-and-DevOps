@@ -21,6 +21,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Install dependencies
-      run: npm install
+      run: |
+        cd Labs-And-Homeworks/CI-CD-in-Git-Hub-Actions/01.Student-Registry-App
+        npm install
     - name: Run integration tests
       run: npm test
