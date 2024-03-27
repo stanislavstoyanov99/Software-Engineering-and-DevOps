@@ -25,5 +25,7 @@ jobs:
       run: |
         cd Labs-And-Homeworks/CI-CD-in-Git-Hub-Actions/01.Student-Registry-App
         npm install
+    - name: Start audit
+      run: npm audit fix --force
     - name: Run integration tests
       run: npm test
