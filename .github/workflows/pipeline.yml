@@ -9,16 +9,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x, 20.x]
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 20
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 20
         cache: 'npm'
         cache-dependency-path: ./Labs-And-Homeworks/CI-CD-in-Git-Hub-Actions/01.Student-Registry-App/package-lock.json
     - name: Install dependencies
@@ -32,6 +29,7 @@ jobs:
   
   deploy:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Deploy to production
         uses: johnbeynon/render-deploy-action@v0.0.8
