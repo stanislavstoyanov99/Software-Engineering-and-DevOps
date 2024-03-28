@@ -23,7 +23,7 @@ jobs:
         cd Labs-And-Homeworks/Automated-Testing/Library-Catalog
         npm install
     - name: Replace the config settings
-      run: echo "export const settings = { host:\"http://localhost:3030\" };" > Labs-And-Homeworks/Automated-Testing/Library-Catalog src/config.js
+      run: echo "export const settings = { host:\"http://localhost:3030\" };" > Labs-And-Homeworks/Automated-Testing/Library-Catalog/src/config.js
     - name: Start backend
       run: |
         cd Labs-And-Homeworks/Automated-Testing/Library-Catalog
