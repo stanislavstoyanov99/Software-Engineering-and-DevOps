@@ -39,7 +39,7 @@ jobs:
     - name: Install Playwright
       run: |
         cd Labs-And-Homeworks/Automated-Testing/Library-Catalog
-        npx install playwright
+        npx playwright install
     - name: Execute Playwright UI tests
       run: |
         cd Labs-And-Homeworks/Automated-Testing/Library-Catalog
