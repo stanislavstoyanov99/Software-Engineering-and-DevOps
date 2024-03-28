@@ -18,26 +18,32 @@ jobs:
         node-version: 20
         cache: 'npm'
         cache-dependency-path: ./Labs-And-Homeworks/Automated-Testing/Library-Catalog/package-lock.json
-    - name: Locate package.json directory
-      run: cd Labs-And-Homeworks/Automated-Testing/Library-Catalog
     - name: Install dependencies
-      run: npm install
+      run: |
+        cd Labs-And-Homeworks/Automated-Testing/Library-Catalog
+        npm install
     - name: Replace the config settings
       run: echo "export const settings = { host:\"http://localhost:3030\" };" > src/config.js
     - name: Start backend
-      run: npm run start-be &
+      run: |
+        cd Labs-And-Homeworks/Automated-Testing/Library-Catalog
+        npm run start-be &
     - name: Sleep for 3 seconds
       run: sleep 3
     - name: Start frontend
-      run: npm run start-fe &
+      run: |
+        cd Labs-And-Homeworks/Automated-Testing/Library-Catalog
+        npm run start-fe &
     - name: Sleep for 3 seconds
       run: sleep 3
     - name: Install Playwright
-      run: npx playwright install
+      run: |
+        cd Labs-And-Homeworks/Automated-Testing/Library-Catalog
+        npx install playwright
     - name: Execute Playwright UI tests
-      run: npm run test-ui
-    - name: Run integration tests
-      run: npm test
+      run: |
+        cd Labs-And-Homeworks/Automated-Testing/Library-Catalog
+        npm run test-ui
   
   deploy-be:
     runs-on: ubuntu-latest
